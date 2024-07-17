@@ -28,4 +28,12 @@ router.post("/", (req, res) => {
     res.send(`${user.first_name} has been added to the Database`);
 });
 
+router.get("/:id", (req, res) => {
+    const { id } = req.params;
+    const foundUser = users.find((user) => {
+        user.id === id;
+    });
+    res.send(foundUser);
+});
+
 export default router;
